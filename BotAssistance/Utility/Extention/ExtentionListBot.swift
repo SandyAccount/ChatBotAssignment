@@ -21,7 +21,7 @@ extension ListBotViewController: UITableViewDataSource{
 // MARK: - TableviewDelegate - ListBot
 extension ListBotViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let chatView = ChatViewController.loadChatView(strBotName:"Chat Assistant", index: indexPath.row)
+        let chatView = ChatViewController.loadChatView(strBotName:ChatBotJson.sharedInstance.arrayBot?[indexPath.row].botName ?? "", index: indexPath.row)
         self.navigationController?.pushViewController(chatView, animated: true)
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

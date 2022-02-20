@@ -137,13 +137,9 @@
 		2364403F27BF55E700978478 /* BotAssistance */ = {
 			isa = PBXGroup;
 			children = (
+				23DA2F8327C2CCAC0071B195 /* Resources */,
 				2364408227BF82CB00978478 /* Utility */,
 				2364407727BF5B3800978478 /* BusinessAndPresentationLayer */,
-				2364404027BF55E700978478 /* AppDelegate.swift */,
-				2364404427BF55E700978478 /* ViewController.swift */,
-				2364404627BF55E700978478 /* Main.storyboard */,
-				2364404C27BF55E800978478 /* Assets.xcassets */,
-				2364404E27BF55E800978478 /* LaunchScreen.storyboard */,
 				2364405127BF55E800978478 /* Info.plist */,
 				2364404927BF55E700978478 /* BotAssistance.xcdatamodeld */,
 			);
@@ -263,6 +259,18 @@
 				23DA2F7F27C2C19E0071B195 /* SendChatMessage.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		23DA2F8327C2CCAC0071B195 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2364404027BF55E700978478 /* AppDelegate.swift */,
+				2364404427BF55E700978478 /* ViewController.swift */,
+				2364404627BF55E700978478 /* Main.storyboard */,
+				2364404C27BF55E800978478 /* Assets.xcassets */,
+				2364404E27BF55E800978478 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
