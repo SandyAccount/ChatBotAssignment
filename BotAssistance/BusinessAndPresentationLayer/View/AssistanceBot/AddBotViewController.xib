@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddBotViewController" customModule="BotAssistance" customModuleProvider="target">
+            <connections>
+                <outlet property="textFieldBotName" destination="JEx-sE-I4h" id="rya-wa-gmx"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qGu-jB-ZLZ">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.43968382576443504" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <connections>
+                        <action selector="buttonCancelClicked:" destination="-1" eventType="touchUpInside" id="1Qn-fn-08k"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kjx-hf-m9g">
+                    <rect key="frame" x="40" y="206" width="240" height="156"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bot Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nb9-rH-f2K">
+                            <rect key="frame" x="16" y="10" width="147" height="18"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5VO-gP-hjU">
+                            <rect key="frame" x="16" y="44" width="216" height="1"/>
+                            <color key="backgroundColor" white="0.67000000000000004" alpha="0.43093791229045941" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="aKn-vA-ulO"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Bot Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JEx-sE-I4h">
+                            <rect key="frame" x="16" y="61" width="216" height="34"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="34" id="1VD-uw-JRx"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="24b-c2-rhV">
+                            <rect key="frame" x="48.5" y="111" width="143" height="30"/>
+                            <color key="backgroundColor" red="0.27843137254901962" green="0.30196078431372547" blue="0.38431372549019605" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="143" id="McU-mf-oKL"/>
+                                <constraint firstAttribute="height" constant="30" id="nOv-yI-3bn"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
+                            <state key="normal" title="Submit">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="15"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="buttonSubmitClicked:" destination="-1" eventType="touchUpInside" id="MnG-GZ-M52"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="JEx-sE-I4h" firstAttribute="leading" secondItem="kjx-hf-m9g" secondAttribute="leading" constant="16" id="16i-ZC-B0Y"/>
+                        <constraint firstItem="Nb9-rH-f2K" firstAttribute="leading" secondItem="kjx-hf-m9g" secondAttribute="leading" constant="16" id="4qE-hD-tEj"/>
+                        <constraint firstItem="5VO-gP-hjU" firstAttribute="leading" secondItem="kjx-hf-m9g" secondAttribute="leading" constant="16" id="GcE-le-zGb"/>
+                        <constraint firstItem="JEx-sE-I4h" firstAttribute="top" secondItem="5VO-gP-hjU" secondAttribute="bottom" constant="16" id="IIN-XL-jrS"/>
+                        <constraint firstAttribute="width" constant="240" id="S07-mF-PoW"/>
+                        <constraint firstItem="5VO-gP-hjU" firstAttribute="top" secondItem="Nb9-rH-f2K" secondAttribute="bottom" constant="16" id="XCf-UH-huw"/>
+                        <constraint firstAttribute="trailing" secondItem="Nb9-rH-f2K" secondAttribute="trailing" constant="77" id="eCB-UV-9EG"/>
+                        <constraint firstItem="24b-c2-rhV" firstAttribute="centerX" secondItem="kjx-hf-m9g" secondAttribute="centerX" id="ilg-RN-iI6"/>
+                        <constraint firstItem="Nb9-rH-f2K" firstAttribute="top" secondItem="kjx-hf-m9g" secondAttribute="top" constant="10" id="jgL-nX-X6C"/>
+                        <constraint firstAttribute="trailing" secondItem="JEx-sE-I4h" secondAttribute="trailing" constant="8" id="mpJ-Rj-VQN"/>
+                        <constraint firstAttribute="height" constant="156" id="plQ-KH-ZwZ"/>
+                        <constraint firstAttribute="trailing" secondItem="5VO-gP-hjU" secondAttribute="trailing" constant="8" id="ugp-RT-a1N"/>
+                        <constraint firstItem="24b-c2-rhV" firstAttribute="top" secondItem="JEx-sE-I4h" secondAttribute="bottom" constant="16" id="wic-la-OIm"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="qGu-jB-ZLZ" secondAttribute="bottom" id="10F-H7-c5m"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="qGu-jB-ZLZ" secondAttribute="trailing" id="5gt-Hr-fte"/>
+                <constraint firstItem="kjx-hf-m9g" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="6fr-Mr-Dfk"/>
+                <constraint firstItem="qGu-jB-ZLZ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="6wj-Y5-L9S"/>
+                <constraint firstItem="qGu-jB-ZLZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Lvv-du-NdS"/>
+                <constraint firstItem="kjx-hf-m9g" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Xbs-Fn-RWn"/>
+            </constraints>
+            <point key="canvasLocation" x="-3.75" y="46.478873239436624"/>
+        </view>
+    </objects>
+</document>
