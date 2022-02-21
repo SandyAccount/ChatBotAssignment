@@ -31,10 +31,10 @@ class ChatViewController: UIViewController{
         setNavigationBar()
         registerCell()
         self.registerObserver()
-        self.viewSendMessage.setAttributToView(cornerRadius: 5.0, borderWidth: 1.0, borderColor: UIColor.lightGray)
         chatViewModel = ChatViewModel(delegate: self)
     }
     private func setUpInterface(){
+        self.viewSendMessage.setAttributToView(cornerRadius: 5.0, borderWidth: 1.0, borderColor: UIColor.lightGray)
         textViewMessage.setAttributToView(cornerRadius: 5.0, borderWidth: 1.0, borderColor: UIColor.lightGray)
     }
   // MARK: - Register Observer
@@ -87,9 +87,19 @@ class ChatViewController: UIViewController{
         chatViewModel?.sendMessage(strMessage: self.textViewMessage.text ?? "", isBotMessage: isBotMessage, index: iIndex!)
     }
 }
+//////////////////////////////////////////////////////////////////////////////////////////////////
 
+/*
+Note -:
+View -: Chatviewcontroller
+ViewModel -: ChatViewModel
+Model -: Chatmodel
+Extention -: ExtentionChatViewController
 
-
+Helper Class -:
+ SendChatMessage -: Send messages and save localy
+ 
+*/
 
 
 
