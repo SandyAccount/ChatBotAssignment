@@ -10,6 +10,7 @@ import UIKit
 class ListBotViewController: UIViewController{
     // MARK: - Iboutlet and Global Variable Declaration
     @IBOutlet weak var tableviewListBot: UITableView!
+    @IBOutlet weak var labelNoData: UILabel!
     var listBotViewModel:ListBotViewModel?
     // MARK: - Nib Initialization
     static func loadListBotView() -> ListBotViewController{
@@ -26,7 +27,14 @@ class ListBotViewController: UIViewController{
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        title = "Bot Assistance"
+        self.tableviewListBot.reloadData()
+        self.tableviewListBot.isHidden = listBotViewModel?.hideTableview() ?? false ? true : false
         listBotViewModel?.registerObserver()
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        title = ""
     }
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)

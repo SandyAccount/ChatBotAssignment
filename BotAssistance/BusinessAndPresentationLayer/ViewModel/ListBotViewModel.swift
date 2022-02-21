@@ -17,9 +17,10 @@ class ListBotViewModel {
     private func getBotList(){
         ChatBotJson.sharedInstance.getBotDataFromLocalJson(objectType: ChatModel.self) { response in
             if response.chatData?.count ?? 0 > 0 {
-                guard let sort = (response.chatData?.sorted(by: {$0.date ?? "" < $1.date ?? ""})) else { return
+                guard let arrayChat = response.chatData?.sorted(by:{$0.sortDate ?? Date() > $1.sortDate ?? Date()}) else{
+                    return
                 }
-                ChatBotJson.sharedInstance.arrayBot = sort
+                ChatBotJson.sharedInstance.arrayBot = arrayChat
             }
         }
     }
@@ -30,5 +31,12 @@ class ListBotViewModel {
     // MARK: - Observer - Remove Notification Observer
     func removeObserver(){
         NotificationCenter.default.removeObserver(self, name: .Route, object: nil)
+    }
+    func hideTableview() -> Bool {
+        if ChatBotJson.sharedInstance.arrayBot?.count ?? 0 > 0{
+            return false
+        }else{
+            return true
+        }
     }
 }

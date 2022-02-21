@@ -21,14 +21,15 @@ extension UINavigationController{
             btnAddBot.action = #selector(rightButtonAction(sender:))
             self.navigationBar.topItem?.rightBarButtonItems =  [btnAddBot]
         }
-//        if isBackBarButton{
-//            let image = UIImage(named: "add24")?.withRenderingMode(.alwaysOriginal)
-//             let btnAddBot = UIBarButtonItem()
-//             btnAddBot.image = image
-//             btnAddBot.target = self
-//             btnAddBot.action = #selector(rightButtonAction(sender:))
-//             self.navigationBar.topItem?.leftBarButtonItems =  [btnAddBot]
-//        }
+        navigationItem.backButtonTitle = ""
+        if isBackBarButton{
+            let backImage = UIImage(named: "back")?.withRenderingMode(.alwaysTemplate)
+            backImage?.withTintColor(UIColor.green)
+            self.navigationController?.navigationBar.backIndicatorImage = backImage
+            self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = backImage
+            self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItem.Style.plain, target: nil, action: nil)
+            
+        }
     }
     @objc func rightButtonAction(sender: UIBarButtonItem){
         NotificationCenter.default.post(name: NSNotification.Name("Route"), object: nil, userInfo: nil)

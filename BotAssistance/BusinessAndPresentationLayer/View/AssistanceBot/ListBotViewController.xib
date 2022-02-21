@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ListBotViewController" customModule="BotAssistance" customModuleProvider="target">
             <connections>
+                <outlet property="labelNoData" destination="OgH-H6-Gvl" id="vNY-IH-vvz"/>
                 <outlet property="tableviewListBot" destination="Ydi-lf-9nR" id="32G-pR-NKD"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -19,6 +20,12 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Data Found!!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OgH-H6-Gvl">
+                    <rect key="frame" x="33" y="275.5" width="254" height="17"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ydi-lf-9nR">
                     <rect key="frame" x="0.0" y="14" width="320" height="554"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -31,12 +38,16 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="OgH-H6-Gvl" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="6oX-s0-e7O"/>
                 <constraint firstItem="Ydi-lf-9nR" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="14" id="Osn-Ou-0Vl"/>
+                <constraint firstItem="OgH-H6-Gvl" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="T9T-OM-5zt"/>
+                <constraint firstItem="OgH-H6-Gvl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="33" id="W7O-nP-qRM"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="OgH-H6-Gvl" secondAttribute="trailing" constant="33" id="YcZ-Ys-MZy"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Ydi-lf-9nR" secondAttribute="trailing" id="b1e-yE-NHN"/>
                 <constraint firstItem="Ydi-lf-9nR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="kCR-vF-IJ3"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Ydi-lf-9nR" secondAttribute="bottom" id="xod-aK-gYf"/>
             </constraints>
-            <point key="canvasLocation" x="-81" y="109"/>
+            <point key="canvasLocation" x="-82.5" y="108.80281690140845"/>
         </view>
     </objects>
     <resources>

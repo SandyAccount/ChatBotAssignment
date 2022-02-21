@@ -22,11 +22,13 @@ struct ChatData:Codable {
     var date : String?
     var lastMessage : String?
     var messages:[Messages] = []
+    var sortDate : Date?
     enum CodingKeys: String, CodingKey {
         case botName = "botName"
         case date = "date"
         case lastMessage = "lastMessage"
         case messages = "messages"
+        case sortDate = "sortDate"
     }
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
@@ -34,10 +36,12 @@ struct ChatData:Codable {
         date = try values.decodeIfPresent(String.self, forKey: .date)
         lastMessage = try values.decodeIfPresent(String.self, forKey: .lastMessage)
         messages = try values.decodeIfPresent([Messages].self, forKey: .messages) ?? []
+        sortDate = try values.decodeIfPresent(Date.self, forKey: .sortDate)
     }
-    init(strBotName:String,strDate:String) {
+    init(strBotName:String,strDate:String,createdDate:Date) {
         botName = strBotName
         date = strDate
+        sortDate = createdDate
     }
 }
 

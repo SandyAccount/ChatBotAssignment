@@ -8,9 +8,9 @@
 import Foundation
 
 class InitiateBot {
-    static func initiateBot(strBotName:String,strBotCreatedDate:String,strJson:String? = "Bot.json",Completion:((_ jsonData : Bool) -> Void)){
+    static func initiateBot(strBotName:String,strBotCreatedDate:String,createdDate:Date,strJson:String? = "Bot.json",Completion:((_ jsonData : Bool) -> Void)){
         var dataBotArray:Data?
-        let botObject = ChatData(strBotName: strBotName, strDate: strBotCreatedDate)
+        let botObject = ChatData(strBotName: strBotName, strDate: strBotCreatedDate, createdDate: createdDate)
         if ChatBotJson.sharedInstance.arrayBot?.count ?? 0 < 1{
             ChatBotJson.sharedInstance.arrayBot = []
         }

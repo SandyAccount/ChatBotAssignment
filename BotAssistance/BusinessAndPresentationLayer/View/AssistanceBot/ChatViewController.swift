@@ -54,7 +54,9 @@ class ChatViewController: UIViewController{
     }
     // MARK: - SetNavigation
     private func setNavigationBar(){
-        navigationController?.setNavigationTheme(isBackBarButton: true, isRightBarButton: false, navigationTitle: "Chat Assistant")
+        navigationController?.setNavigationTheme(isBackBarButton: true, isRightBarButton: false, navigationTitle: "")
+        
+        
     }
     // MARK: - Register Tableview and Collectionview cell
     private func registerCell(){
@@ -72,6 +74,11 @@ class ChatViewController: UIViewController{
     }
     // MARK: - Send Message
     private func sendMessage(isBotMessage:Bool){
+        if !(textFieldMessage.text?.validateEmpty() ?? false) && !isBotMessage{
+            commonMethod.controller = self
+            commonMethod.showAlert(strTitle: "Error!", strMessage: "Please enter message")
+            return
+        }
         chatViewModel?.sendMessage(strMessage: self.textFieldMessage.text ?? "", isBotMessage: isBotMessage, index: iIndex!)
     }
 }

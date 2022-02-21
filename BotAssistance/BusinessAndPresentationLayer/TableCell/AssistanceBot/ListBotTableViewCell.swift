@@ -10,6 +10,7 @@ import UIKit
 class ListBotTableViewCell: UITableViewCell {
     @IBOutlet weak var labelBotName: UILabel!
     @IBOutlet weak var labelLastMessage: UILabel!
+    
     @IBOutlet weak var labelBotInitial: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,6 +25,7 @@ class ListBotTableViewCell: UITableViewCell {
         if let bot = ChatBotJson.sharedInstance.arrayBot{
             let data = bot[iIndex]
             self.labelBotName.text = data.botName
+            self.labelBotInitial.text = data.botName?.getInitialLetter()
             if data.messages.count > 0 {
                 self.labelLastMessage.text = data.messages[data.messages.count - 1].message
             }else{

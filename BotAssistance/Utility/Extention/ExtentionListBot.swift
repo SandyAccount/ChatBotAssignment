@@ -31,6 +31,7 @@ extension ListBotViewController: UITableViewDelegate{
 // MARK: - Custome Protocol Call Back - CreateNewBot
 extension ListBotViewController: CreateNewBot{
     internal func initiateNewBot(){
+        self.tableviewListBot.isHidden = listBotViewModel?.hideTableview() ?? false ? true : false
         tableviewListBot.reloadData()
     }
 }

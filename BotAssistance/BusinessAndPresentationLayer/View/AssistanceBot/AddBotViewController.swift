@@ -32,10 +32,15 @@ class AddBotViewController: UIViewController {
     }
     @IBAction func buttonSubmitClicked(_ sender: Any) {
         if !(textFieldBotName.text?.validateEmpty() ?? false){
-            self.dismiss(animated: true, completion: nil)
+            commonMethod.controller = self
+            commonMethod.showAlert(strTitle: "Error!", strMessage: "Please enter bot name")
             return
         }
-        InitiateBot.initiateBot(strBotName: textFieldBotName.text ?? "", strBotCreatedDate: "\(Date())") { success in
+        InitiateBot.initiateBot(strBotName: textFieldBotName.text ?? "", strBotCreatedDate: "\(Date())",createdDate:Date()) { success in
+            guard let arrayChat = ChatBotJson.sharedInstance.arrayBot?.sorted(by:{$0.sortDate ?? Date() > $1.sortDate ?? Date()}) else{
+                return
+            }
+            ChatBotJson.sharedInstance.arrayBot = arrayChat
             delegate?.initiateNewBot()
             self.dismiss(animated: true, completion: nil)
         }

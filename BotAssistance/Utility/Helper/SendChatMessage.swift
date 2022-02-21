@@ -10,6 +10,7 @@ class SendChatMessage {
     static func sendMessages(index:Int,dataMessage:Messages,strJson:String? = "Bot.json",Completion:((_ jsonData : Bool) -> Void)){
         var dataBotArray:Data?
         if let _ = ChatBotJson.sharedInstance.arrayBot{
+            ChatBotJson.sharedInstance.arrayBot?[index].sortDate = Date()
             ChatBotJson.sharedInstance.arrayBot?[index].messages.append(dataMessage)
             
         }
