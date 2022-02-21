@@ -25,3 +25,11 @@ extension ChatViewController: UITableViewDelegate{
         return UITableView.automaticDimension
     }
 }
+
+extension ChatViewController:SendMessageProtocol{
+    func messageSend(){
+        tableviewChat.reloadData()
+        self.textFieldMessage.text = ""
+        buttonSendOutlet.isEnabled = false
+    }
+}

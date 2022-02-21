@@ -12,7 +12,9 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var buttonSendOutlet: UIButton!
     @IBOutlet weak var textFieldMessage: UITextField!
     @IBOutlet weak var tableviewChat: UITableView!
+    @IBOutlet weak var viewSendMessage: UIView!
     var iIndex:Int?
+    var chatViewModel:ChatViewModel?
     // MARK: - Load view with nib initialization
     static func loadChatView(strBotName:String,index:Int) -> ChatViewController{
         let chatView = ChatViewController(nibName: "ChatViewController", bundle: nil)
@@ -23,8 +25,19 @@ class ChatViewController: UIViewController {
     // MARK: - View Life Cycle
     override func viewDidLoad(){
         super.viewDidLoad()
-       setNavigationBar()
-       registerCell()
+        setNavigationBar()
+        registerCell()
+        self.viewSendMessage.setAttributToView(cornerRadius: 5.0, borderWidth: 1.0, borderColor: UIColor.lightGray)
+        chatViewModel = ChatViewModel(delegate: self)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(notification:)), name:UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(notification:)), name:UIResponder.keyboardWillShowNotification, object: nil)
+    }
+   @objc func keyboardWillShow(notification: Notification) {
+        self.viewSendMessage.frame.origin.y = -150
+        print(self.viewSendMessage.frame)
+   }
+    @objc func keyboardWillHide(notification: Notification) {
+        self.viewSendMessage.frame.origin.y = 0
     }
     private func setNavigationBar(){
         navigationController?.setNavigationTheme(isBackBarButton: true, isRightBarButton: false, navigationTitle: "Chat Assistant")
@@ -37,30 +50,18 @@ class ChatViewController: UIViewController {
     @IBAction func buttonSendMessageClicked(_ sender: Any) {
         sendMessage(isBotMessage: false)
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-            self.replyFromBot()
+            //self.replyFromBot()
+            self.sendMessage(isBotMessage: true)
             self.buttonSendOutlet.isEnabled = true
         }
     }
     // MARK: - Send Message
     func sendMessage(isBotMessage:Bool){
-        var newMesage:Messages?
-        if isBotMessage{
-            newMesage = Messages(strSender: "Bot", strMessage: "Hi Hi...", strdateMessage:"\(Date())")
-        }else{
-            newMesage = Messages(strSender: "User", strMessage: textFieldMessage.text ?? "", strdateMessage:"\(Date())")
-        }
-        SendChatMessage.sendMessages(index: iIndex!, dataMessage: newMesage!) { Success in
-            tableviewChat.reloadData()
-            self.textFieldMessage.text = ""
-            buttonSendOutlet.isEnabled = false
-            
-        }
-    }
-    // MARK: - Send Message from bot
-    func replyFromBot() {
-        sendMessage(isBotMessage: true)
+        chatViewModel?.sendMessage(strMessage: self.textFieldMessage.text ?? "", isBotMessage: isBotMessage, index: iIndex!)
     }
 }
+
+
 
 
 

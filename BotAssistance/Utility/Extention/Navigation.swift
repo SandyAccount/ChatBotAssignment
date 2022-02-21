@@ -34,3 +34,7 @@ extension UINavigationController{
         NotificationCenter.default.post(name: NSNotification.Name("Route"), object: nil, userInfo: nil)
     }
 }
+
+extension Notification.Name {
+    static let Route = Notification.Name("Route")
+}

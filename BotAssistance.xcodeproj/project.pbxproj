@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2304AB4B27C377D400032F71 /* ExtentionUiview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2304AB4A27C377D400032F71 /* ExtentionUiview.swift */; };
 		2364404127BF55E700978478 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2364404027BF55E700978478 /* AppDelegate.swift */; };
 		2364404527BF55E700978478 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2364404427BF55E700978478 /* ViewController.swift */; };
 		2364404827BF55E700978478 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2364404627BF55E700978478 /* Main.storyboard */; };
@@ -54,6 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2304AB4A27C377D400032F71 /* ExtentionUiview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtentionUiview.swift; sourceTree = "<group>"; };
 		2364403D27BF55E700978478 /* BotAssistance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BotAssistance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2364404027BF55E700978478 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2364404427BF55E700978478 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 				2364408427BF830300978478 /* Navigation.swift */,
 				23DA2F7927C2B0F10071B195 /* ExtentionListBot.swift */,
 				23DA2F7D27C2C0E80071B195 /* ExtentionChatViewController.swift */,
+				2304AB4A27C377D400032F71 /* ExtentionUiview.swift */,
 			);
 			path = Extention;
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 				2364408527BF830300978478 /* Navigation.swift in Sources */,
 				2364404127BF55E700978478 /* AppDelegate.swift in Sources */,
 				23DA2F7C27C2BC130071B195 /* InitiateBot.swift in Sources */,
+				2304AB4B27C377D400032F71 /* ExtentionUiview.swift in Sources */,
 				2364407527BF590200978478 /* ListBotViewController.swift in Sources */,
 				23DA2F8027C2C19E0071B195 /* SendChatMessage.swift in Sources */,
 			);

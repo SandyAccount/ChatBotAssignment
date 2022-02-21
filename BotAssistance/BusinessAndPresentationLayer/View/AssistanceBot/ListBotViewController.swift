@@ -37,7 +37,7 @@ class ListBotViewController: UIViewController{
     
     // MARK: - Observer - Register Notification Observer
     private func registerObserver()  {
-        NotificationCenter.default.addObserver(self, selector: #selector(self.routeToDetail(notification:)), name: Notification.Name("Route"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.routeToDetail(notification:)), name:.Route, object: nil)
     }
     // MARK: - Register Uitableview and Collectionview Cell
     private func registerCell(){
