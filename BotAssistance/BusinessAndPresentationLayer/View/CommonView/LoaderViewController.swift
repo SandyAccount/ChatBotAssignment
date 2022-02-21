@@ -11,6 +11,7 @@ class LoaderViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     static func loadView() -> LoaderViewController{
       let loader = LoaderViewController(nibName: "LoaderViewController", bundle: nil)
+      loader.modalPresentationStyle = .overFullScreen
       return loader
     }
     override func viewDidLoad() {
