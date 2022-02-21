@@ -12,7 +12,7 @@
             <connections>
                 <outlet property="buttonSendOutlet" destination="8e0-F1-ISX" id="7uG-CS-AOW"/>
                 <outlet property="tableviewChat" destination="0Fc-vS-qrx" id="Fi7-Jg-OrP"/>
-                <outlet property="textFieldMessage" destination="DJ3-Vu-8O6" id="c5a-Ki-ScT"/>
+                <outlet property="textViewMessage" destination="Qcc-HS-kfo" id="Vru-u3-V70"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewSendMessage" destination="3ba-lb-1AB" id="LMj-mr-ya1"/>
             </connections>
@@ -30,17 +30,9 @@
                         <outlet property="delegate" destination="-1" id="TAB-fT-vfQ"/>
                     </connections>
                 </tableView>
-                <view contentMode="scaleToFill" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="3ba-lb-1AB">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3ba-lb-1AB">
                     <rect key="frame" x="10" y="511" width="300" height="54"/>
                     <subviews>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DJ3-Vu-8O6">
-                            <rect key="frame" x="14" y="10" width="240" height="34"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
-                            <connections>
-                                <outlet property="delegate" destination="i5M-Pr-FkT" id="gTK-2U-3jA"/>
-                            </connections>
-                        </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8e0-F1-ISX">
                             <rect key="frame" x="260" y="12" width="30" height="30"/>
                             <constraints>
@@ -52,16 +44,26 @@
                                 <action selector="buttonSendMessageClicked:" destination="-1" eventType="touchUpInside" id="amE-CC-Ld7"/>
                             </connections>
                         </button>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Qcc-HS-kfo">
+                            <rect key="frame" x="14" y="10" width="240" height="34"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <color key="textColor" systemColor="labelColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="ASo-fA-fEh"/>
+                            </connections>
+                        </textView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="DJ3-Vu-8O6" firstAttribute="top" secondItem="3ba-lb-1AB" secondAttribute="top" constant="10" id="0wo-Mc-HyU"/>
-                        <constraint firstAttribute="bottom" secondItem="DJ3-Vu-8O6" secondAttribute="bottom" constant="10" id="6M8-7c-KfM"/>
                         <constraint firstAttribute="trailing" secondItem="8e0-F1-ISX" secondAttribute="trailing" constant="10" id="A19-OJ-O3y"/>
+                        <constraint firstItem="Qcc-HS-kfo" firstAttribute="leading" secondItem="3ba-lb-1AB" secondAttribute="leading" constant="14" id="Ibj-lf-g0G"/>
                         <constraint firstItem="8e0-F1-ISX" firstAttribute="centerY" secondItem="3ba-lb-1AB" secondAttribute="centerY" id="RFl-J8-Coz"/>
-                        <constraint firstAttribute="height" constant="54" id="Tar-ou-gyE"/>
-                        <constraint firstItem="DJ3-Vu-8O6" firstAttribute="leading" secondItem="3ba-lb-1AB" secondAttribute="leading" constant="14" id="Y7W-My-MYr"/>
-                        <constraint firstItem="8e0-F1-ISX" firstAttribute="leading" secondItem="DJ3-Vu-8O6" secondAttribute="trailing" constant="6" id="w4W-Nh-bAe"/>
+                        <constraint firstAttribute="height" constant="54" id="Sjl-ZJ-kcR"/>
+                        <constraint firstAttribute="bottom" secondItem="Qcc-HS-kfo" secondAttribute="bottom" constant="10" id="ZIS-iE-RZh"/>
+                        <constraint firstItem="8e0-F1-ISX" firstAttribute="leading" secondItem="Qcc-HS-kfo" secondAttribute="trailing" constant="6" id="h9L-2f-SmT"/>
+                        <constraint firstItem="Qcc-HS-kfo" firstAttribute="top" secondItem="3ba-lb-1AB" secondAttribute="top" constant="10" id="tuW-hc-r9K"/>
                     </constraints>
                 </view>
             </subviews>
@@ -81,6 +83,9 @@
     </objects>
     <resources>
         <image name="send" width="32" height="32"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -2,7 +2,7 @@
 //  AddBotViewController.swift
 //  BotAssistance
 //
-//  Created by Activ Health on 18/02/22.
+//  Created by Activ Health on 21/02/22.
 //
 
 import UIKit
@@ -46,6 +46,13 @@ class AddBotViewController: UIViewController {
                 commonMethod.showAlert(strTitle: "Error!", strMessage: "Something went wrong...")
             }
         })
+    }
+}
+// MARK: - TextField Delegate Method
+extension AddBotViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder() // dismiss keyboard
+        return true
     }
 }
 

@@ -31,7 +31,7 @@ extension ChatViewController: UITableViewDelegate{
 extension ChatViewController:SendMessageProtocol{
     func messageSend(){
         tableviewChat.reloadData()
-        self.textFieldMessage.text = ""
+        self.textViewMessage.text = ""
         buttonSendOutlet.isEnabled = false
     }
 }
@@ -39,6 +39,12 @@ extension ChatViewController:SendMessageProtocol{
 extension ChatViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder() // dismiss keyboard
+        return true
+    }
+}
+extension ChatViewController: UITextViewDelegate{
+    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
+        textView.resignFirstResponder() // dismiss keyboard
         return true
     }
 }

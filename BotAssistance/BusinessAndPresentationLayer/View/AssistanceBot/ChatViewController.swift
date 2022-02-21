@@ -2,7 +2,7 @@
 //  ChatViewController.swift
 //  BotAssistance
 //
-//  Created by Activ Health on 18/02/22.
+//  Created by Activ Health on 21/02/22.
 //
 
 import UIKit
@@ -10,7 +10,8 @@ import UIKit
 class ChatViewController: UIViewController{
     // MARK: - Iboutlet and Global Variable Declaration
     @IBOutlet weak var buttonSendOutlet: UIButton!
-    @IBOutlet weak var textFieldMessage: UITextField!
+   // @IBOutlet weak var textFieldMessage: UITextField!
+    @IBOutlet weak var textViewMessage: UITextView!
     @IBOutlet weak var tableviewChat: UITableView!
     @IBOutlet weak var viewSendMessage: UIView!
     var iIndex:Int?
@@ -25,12 +26,16 @@ class ChatViewController: UIViewController{
     // MARK: - View Life Cycle
     override func viewDidLoad(){
         super.viewDidLoad()
-        textFieldMessage.delegate = self
+        textViewMessage.delegate = self
+        setUpInterface()
         setNavigationBar()
         registerCell()
         self.registerObserver()
         self.viewSendMessage.setAttributToView(cornerRadius: 5.0, borderWidth: 1.0, borderColor: UIColor.lightGray)
         chatViewModel = ChatViewModel(delegate: self)
+    }
+    private func setUpInterface(){
+        textViewMessage.setAttributToView(cornerRadius: 5.0, borderWidth: 1.0, borderColor: UIColor.lightGray)
     }
   // MARK: - Register Observer
    private func registerObserver(){
@@ -65,7 +70,7 @@ class ChatViewController: UIViewController{
     // MARK: - Ibaction Click event
    // Send Message from User
     @IBAction private func buttonSendMessageClicked(_ sender: Any) {
-        textFieldMessage.resignFirstResponder()
+        textViewMessage.resignFirstResponder()
         sendMessage(isBotMessage: false)
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             self.sendMessage(isBotMessage: true)
@@ -74,12 +79,12 @@ class ChatViewController: UIViewController{
     }
     // MARK: - Send Message
     private func sendMessage(isBotMessage:Bool){
-        if !(textFieldMessage.text?.validateEmpty() ?? false) && !isBotMessage{
+        if !(textViewMessage.text?.validateEmpty() ?? false) && !isBotMessage{
             commonMethod.controller = self
             commonMethod.showAlert(strTitle: "Error!", strMessage: "Please enter message")
             return
         }
-        chatViewModel?.sendMessage(strMessage: self.textFieldMessage.text ?? "", isBotMessage: isBotMessage, index: iIndex!)
+        chatViewModel?.sendMessage(strMessage: self.textViewMessage.text ?? "", isBotMessage: isBotMessage, index: iIndex!)
     }
 }
 

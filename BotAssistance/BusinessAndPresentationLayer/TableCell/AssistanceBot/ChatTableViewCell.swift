@@ -2,7 +2,7 @@
 //  ChatTableViewCell.swift
 //  BotAssistance
 //
-//  Created by Activ Health on 18/02/22.
+//  Created by Activ Health on 21/02/22.
 //
 
 import UIKit
