@@ -23,7 +23,7 @@ class ChatBotJson {
             }
             Completion(chatBotArray)
         } catch {
-            print(error)
+            
         }
     }
 }

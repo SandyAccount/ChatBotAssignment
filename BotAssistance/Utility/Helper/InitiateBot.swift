@@ -11,6 +11,9 @@ class InitiateBot {
     static func initiateBot(strBotName:String,strBotCreatedDate:String,strJson:String? = "Bot.json",Completion:((_ jsonData : Bool) -> Void)){
         var dataBotArray:Data?
         let botObject = ChatData(strBotName: strBotName, strDate: strBotCreatedDate)
+        if ChatBotJson.sharedInstance.arrayBot?.count ?? 0 < 1{
+            ChatBotJson.sharedInstance.arrayBot = []
+        }
         ChatBotJson.sharedInstance.arrayBot?.append(botObject)
         let newBotObject = ["data":ChatBotJson.sharedInstance.arrayBot]
         if let encoded = try? JSONEncoder().encode(newBotObject) {

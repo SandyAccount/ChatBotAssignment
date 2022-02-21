@@ -33,3 +33,11 @@ extension ChatViewController:SendMessageProtocol{
         buttonSendOutlet.isEnabled = false
     }
 }
+extension ChatViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder() // dismiss keyboard
+        return true
+    }
+}
+
+

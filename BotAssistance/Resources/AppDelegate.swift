@@ -69,12 +69,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
-
-
 extension AppDelegate{
     fileprivate func setRootViewController(){
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        let listBot = ListBotViewController.loadDashboardView()
+        let listBot = ListBotViewController.loadListBotView()
         let navigationController = UINavigationController(rootViewController: listBot)
         self.window?.rootViewController = navigationController
         self.window?.makeKeyAndVisible()

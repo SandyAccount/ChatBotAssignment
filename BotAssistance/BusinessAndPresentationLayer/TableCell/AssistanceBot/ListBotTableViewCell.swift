@@ -24,7 +24,11 @@ class ListBotTableViewCell: UITableViewCell {
         if let bot = ChatBotJson.sharedInstance.arrayBot{
             let data = bot[iIndex]
             self.labelBotName.text = data.botName
-            self.labelLastMessage.text = "-"
+            if data.messages.count > 0 {
+                self.labelLastMessage.text = data.messages[data.messages.count - 1].message
+            }else{
+                self.labelLastMessage.text = "-"
+            }
         }
     }
 }

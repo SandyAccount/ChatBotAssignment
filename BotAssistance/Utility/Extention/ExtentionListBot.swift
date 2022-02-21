@@ -34,5 +34,12 @@ extension ListBotViewController: CreateNewBot{
         tableviewListBot.reloadData()
     }
 }
+// MARK: - Other Function
+extension ListBotViewController{
+     @objc func routeToAddBot(notification: Notification) {
+        let addBotView = AddBotViewController.loadCreateBotView(addBotDelegate:self)
+        self.present(addBotView, animated: true)
+    }
+}
 
 

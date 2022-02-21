@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2304AB4B27C377D400032F71 /* ExtentionUiview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2304AB4A27C377D400032F71 /* ExtentionUiview.swift */; };
+		2304AB4F27C392D400032F71 /* ExtentionString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2304AB4E27C392D400032F71 /* ExtentionString.swift */; };
+		2304AB5127C3977000032F71 /* CommonMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2304AB5027C3977000032F71 /* CommonMethod.swift */; };
 		2364404127BF55E700978478 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2364404027BF55E700978478 /* AppDelegate.swift */; };
 		2364404527BF55E700978478 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2364404427BF55E700978478 /* ViewController.swift */; };
 		2364404827BF55E700978478 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2364404627BF55E700978478 /* Main.storyboard */; };
@@ -56,6 +58,8 @@
 
 /* Begin PBXFileReference section */
 		2304AB4A27C377D400032F71 /* ExtentionUiview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtentionUiview.swift; sourceTree = "<group>"; };
+		2304AB4E27C392D400032F71 /* ExtentionString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtentionString.swift; sourceTree = "<group>"; };
+		2304AB5027C3977000032F71 /* CommonMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonMethod.swift; sourceTree = "<group>"; };
 		2364403D27BF55E700978478 /* BotAssistance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BotAssistance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2364404027BF55E700978478 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2364404427BF55E700978478 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -250,6 +254,7 @@
 				23DA2F7927C2B0F10071B195 /* ExtentionListBot.swift */,
 				23DA2F7D27C2C0E80071B195 /* ExtentionChatViewController.swift */,
 				2304AB4A27C377D400032F71 /* ExtentionUiview.swift */,
+				2304AB4E27C392D400032F71 /* ExtentionString.swift */,
 			);
 			path = Extention;
 			sourceTree = "<group>";
@@ -260,6 +265,7 @@
 				23DA2F7527C246F30071B195 /* ChatBotJson.swift */,
 				23DA2F7B27C2BC130071B195 /* InitiateBot.swift */,
 				23DA2F7F27C2C19E0071B195 /* SendChatMessage.swift */,
+				2304AB5027C3977000032F71 /* CommonMethod.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -418,6 +424,7 @@
 				236D6F8527BFC02F0023A1EC /* AddBotViewController.swift in Sources */,
 				236D6F8927BFEBA70023A1EC /* ChatTableViewCell.swift in Sources */,
 				23DA2F8227C2C9880071B195 /* ChatViewModel.swift in Sources */,
+				2304AB5127C3977000032F71 /* CommonMethod.swift in Sources */,
 				2364408027BF5FCB00978478 /* ListBotTableViewCell.swift in Sources */,
 				23DA2F7627C246F30071B195 /* ChatBotJson.swift in Sources */,
 				2373D67627C0D0FE0088D561 /* ChatModel.swift in Sources */,
@@ -426,6 +433,7 @@
 				2364408527BF830300978478 /* Navigation.swift in Sources */,
 				2364404127BF55E700978478 /* AppDelegate.swift in Sources */,
 				23DA2F7C27C2BC130071B195 /* InitiateBot.swift in Sources */,
+				2304AB4F27C392D400032F71 /* ExtentionString.swift in Sources */,
 				2304AB4B27C377D400032F71 /* ExtentionUiview.swift in Sources */,
 				2364407527BF590200978478 /* ListBotViewController.swift in Sources */,
 				23DA2F8027C2C19E0071B195 /* SendChatMessage.swift in Sources */,
