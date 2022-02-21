@@ -15,6 +15,7 @@ class AddBotViewController: UIViewController {
     // MARK: - Iboutlet and Global Variable Declaration
     @IBOutlet weak var textFieldBotName: UITextField!
     var delegate:CreateNewBot?
+    var botViewModel:AddBotViewModel?
     // MARK: - Nib Initialization
     static func loadCreateBotView(addBotDelegate:CreateNewBot) -> AddBotViewController{
         let botView = AddBotViewController(nibName: "AddBotViewController", bundle: nil)
@@ -25,7 +26,7 @@ class AddBotViewController: UIViewController {
     // MARK: - View Life Cycle Delegate Method
     override func viewDidLoad() {
         super.viewDidLoad()
-     }
+    }
     // MARK: - Button Click event
     @IBAction func buttonCancelClicked(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -36,24 +37,25 @@ class AddBotViewController: UIViewController {
             commonMethod.showAlert(strTitle: "Error!", strMessage: "Please enter bot name")
             return
         }
-        InitiateBot.initiateBot(strBotName: textFieldBotName.text ?? "", strBotCreatedDate: "\(Date())",createdDate:Date()) { success in
-            guard let arrayChat = ChatBotJson.sharedInstance.arrayBot?.sorted(by:{$0.sortDate ?? Date() > $1.sortDate ?? Date()}) else{
-                return
+        botViewModel = AddBotViewModel()
+        botViewModel?.updateBotData(botName: textFieldBotName.text ?? "", Completion: { result in
+            if result{
+                delegate?.initiateNewBot()
+                self.dismiss(animated: true, completion: nil)
+            }else{
+                commonMethod.showAlert(strTitle: "Error!", strMessage: "Something went wrong...")
             }
-            ChatBotJson.sharedInstance.arrayBot = arrayChat
-            delegate?.initiateNewBot()
-            self.dismiss(animated: true, completion: nil)
-        }
-     }
+        })
+    }
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 /*
-Note -:
+ Note -:
  1. AddBotViewController -> View
- 2. InitiateBot Class perform action to create new bot and save in local json
+ 2. AddBotViewModel -> View Model
  3. Delegate method used to indicate botlist about new bot creation
-*/
+ */
 
 
 

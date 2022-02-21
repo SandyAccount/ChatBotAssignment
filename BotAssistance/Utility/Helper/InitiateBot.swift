@@ -8,6 +8,7 @@
 import Foundation
 
 class InitiateBot {
+    // MARK: - Bot Created Function
     static func initiateBot(strBotName:String,strBotCreatedDate:String,createdDate:Date,strJson:String? = "Bot.json",Completion:((_ jsonData : Bool) -> Void)){
         var dataBotArray:Data?
         let botObject = ChatData(strBotName: strBotName, strDate: strBotCreatedDate, createdDate: createdDate)
@@ -16,13 +17,22 @@ class InitiateBot {
         }
         ChatBotJson.sharedInstance.arrayBot?.append(botObject)
         let newBotObject = ["data":ChatBotJson.sharedInstance.arrayBot]
-        if let encoded = try? JSONEncoder().encode(newBotObject) {
-            dataBotArray = encoded//try JSONSerialization.data(withJSONObject:encoded)
+        do{
+            if let encoded = try? JSONEncoder().encode(newBotObject) {
+                dataBotArray = encoded//try JSONSerialization.data(withJSONObject:encoded)
+            }
+            guard let documentDirectoryUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+            let fileUrl = documentDirectoryUrl.appendingPathComponent(strJson ?? "Bot.json")
+            if let _ = dataBotArray{
+                try dataBotArray!.write(to: fileUrl)
+                Completion(true)
+            }else{
+                Completion(false)
+            }
+            
+        }catch{
+            Completion(false)
         }
-        guard let documentDirectoryUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
-        let fileUrl = documentDirectoryUrl.appendingPathComponent(strJson ?? "Bot.json")
-        try? dataBotArray!.write(to: fileUrl)
-        Completion(true)
     }
 }
 

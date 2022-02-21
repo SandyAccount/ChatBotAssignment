@@ -69,6 +69,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
+// MARK: - Set Root View Controller
 extension AppDelegate{
     fileprivate func setRootViewController(){
         self.window = UIWindow(frame: UIScreen.main.bounds)

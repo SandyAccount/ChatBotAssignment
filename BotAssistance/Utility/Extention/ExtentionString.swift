@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 extension String{
+    // MARK: - Empty String Validation
     func validateEmpty() -> Bool{
         let strTrimmed = self.trimmingCharacters(in: .whitespacesAndNewlines)
         if strTrimmed.isEmpty || strTrimmed == ""{
@@ -16,6 +17,7 @@ extension String{
         }
         return true
     }
+    // MARK: - Fetch Initial Letter from String
     func getInitialLetter() -> String{
         var finalString:String?
         let splitString = self.split(separator: " ")

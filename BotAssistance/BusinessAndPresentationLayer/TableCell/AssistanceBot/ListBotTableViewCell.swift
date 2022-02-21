@@ -8,19 +8,20 @@
 import UIKit
 
 class ListBotTableViewCell: UITableViewCell {
+    // MARK: - Global Variable Declaration
     @IBOutlet weak var labelBotName: UILabel!
     @IBOutlet weak var labelLastMessage: UILabel!
-    
     @IBOutlet weak var labelBotInitial: UILabel!
+    // MARK: - Nib Initialization
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .none
-        // Initialization code
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
     }
+    // MARK: - Set Data with user interface
     func setData(iIndex:Int){
         if let bot = ChatBotJson.sharedInstance.arrayBot{
             let data = bot[iIndex]

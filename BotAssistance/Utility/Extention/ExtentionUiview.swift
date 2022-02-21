@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-
+// MARK: - Uiview Attribute
 extension UIView{
     func setAttributToView(cornerRadius:CGFloat,borderWidth:CGFloat,borderColor:UIColor){
         self.layer.cornerRadius = cornerRadius

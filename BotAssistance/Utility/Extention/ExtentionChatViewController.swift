@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+// MARK: - Tableview Datasource Delegate Method
 extension ChatViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return ChatBotJson.sharedInstance.arrayBot?[iIndex!].messages.count ?? 0
@@ -20,12 +21,13 @@ extension ChatViewController: UITableViewDataSource{
         return cell
     }
 }
+// MARK: - Tableview Delegate Method
 extension ChatViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
 }
-
+// MARK: - SendMessage Custome Protocol
 extension ChatViewController:SendMessageProtocol{
     func messageSend(){
         tableviewChat.reloadData()
@@ -33,6 +35,7 @@ extension ChatViewController:SendMessageProtocol{
         buttonSendOutlet.isEnabled = false
     }
 }
+// MARK: - Textfield Delegate 
 extension ChatViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder() // dismiss keyboard

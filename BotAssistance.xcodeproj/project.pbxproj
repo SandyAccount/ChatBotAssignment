@@ -37,6 +37,9 @@
 		23DA2F7E27C2C0E80071B195 /* ExtentionChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DA2F7D27C2C0E80071B195 /* ExtentionChatViewController.swift */; };
 		23DA2F8027C2C19E0071B195 /* SendChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DA2F7F27C2C19E0071B195 /* SendChatMessage.swift */; };
 		23DA2F8227C2C9880071B195 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DA2F8127C2C9880071B195 /* ChatViewModel.swift */; };
+		23E77D1E27C41DF3000AA209 /* AddBotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E77D1D27C41DF3000AA209 /* AddBotViewModel.swift */; };
+		23E77D2427C42298000AA209 /* LoaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E77D2227C42298000AA209 /* LoaderViewController.swift */; };
+		23E77D2527C42298000AA209 /* LoaderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23E77D2327C42298000AA209 /* LoaderViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +96,9 @@
 		23DA2F7D27C2C0E80071B195 /* ExtentionChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtentionChatViewController.swift; sourceTree = "<group>"; };
 		23DA2F7F27C2C19E0071B195 /* SendChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendChatMessage.swift; sourceTree = "<group>"; };
 		23DA2F8127C2C9880071B195 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
+		23E77D1D27C41DF3000AA209 /* AddBotViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBotViewModel.swift; sourceTree = "<group>"; };
+		23E77D2227C42298000AA209 /* LoaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderViewController.swift; sourceTree = "<group>"; };
+		23E77D2327C42298000AA209 /* LoaderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoaderViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +190,7 @@
 		2364407827BF5B8600978478 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				23E77D1F27C420A4000AA209 /* CommonView */,
 				2364407B27BF5C8900978478 /* AssistanceBot */,
 			);
 			path = View;
@@ -194,6 +201,7 @@
 			children = (
 				23DA2F7727C2AFDD0071B195 /* ListBotViewModel.swift */,
 				23DA2F8127C2C9880071B195 /* ChatViewModel.swift */,
+				23E77D1D27C41DF3000AA209 /* AddBotViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -280,6 +288,15 @@
 				2364404E27BF55E800978478 /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		23E77D1F27C420A4000AA209 /* CommonView */ = {
+			isa = PBXGroup;
+			children = (
+				23E77D2227C42298000AA209 /* LoaderViewController.swift */,
+				23E77D2327C42298000AA209 /* LoaderViewController.xib */,
+			);
+			path = CommonView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -386,6 +403,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2364405027BF55E800978478 /* LaunchScreen.storyboard in Resources */,
+				23E77D2527C42298000AA209 /* LoaderViewController.xib in Resources */,
 				236D6F8A27BFEBA70023A1EC /* ChatTableViewCell.xib in Resources */,
 				2364404D27BF55E800978478 /* Assets.xcassets in Resources */,
 				2364408927BF957D00978478 /* ChatViewController.xib in Resources */,
@@ -428,7 +446,9 @@
 				2364408027BF5FCB00978478 /* ListBotTableViewCell.swift in Sources */,
 				23DA2F7627C246F30071B195 /* ChatBotJson.swift in Sources */,
 				2373D67627C0D0FE0088D561 /* ChatModel.swift in Sources */,
+				23E77D1E27C41DF3000AA209 /* AddBotViewModel.swift in Sources */,
 				23DA2F7E27C2C0E80071B195 /* ExtentionChatViewController.swift in Sources */,
+				23E77D2427C42298000AA209 /* LoaderViewController.swift in Sources */,
 				2364408827BF957D00978478 /* ChatViewController.swift in Sources */,
 				2364408527BF830300978478 /* Navigation.swift in Sources */,
 				2364404127BF55E700978478 /* AppDelegate.swift in Sources */,

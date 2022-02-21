@@ -8,10 +8,12 @@
 import UIKit
 
 class ChatTableViewCell: UITableViewCell {
+    // MARK: - Global Variable and Iboutlet
     @IBOutlet weak var viewSender: UIView!
     @IBOutlet weak var viewBot: UIView!
     @IBOutlet weak var labelSender: UILabel!
     @IBOutlet weak var labelBot: UILabel!
+    // MARK: - Nib Initialization
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
@@ -20,6 +22,7 @@ class ChatTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
     }
+    // MARK: - Set Data with User Interface
     func setData(iIndex:Int,dataMessage:Messages){
         if dataMessage.sender == "User" {
             self.viewBot.isHidden = true

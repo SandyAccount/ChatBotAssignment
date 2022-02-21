@@ -6,17 +6,19 @@
 //
 
 import Foundation
-
-protocol SendMessageProtocol {
+import UIKit
+protocol SendMessageProtocol:NSObject {
     func messageSend()
 }
 
 class ChatViewModel{
-    var delegateSendMessage:SendMessageProtocol?
+    // MARK: - Global Variable Declaration
+    weak var delegateSendMessage:SendMessageProtocol?
+    // MARK: - Initialization
     init(delegate:SendMessageProtocol) {
         delegateSendMessage = delegate
     }
-    
+    // MARK: - Self Defined Function
     func sendMessage(strMessage:String,isBotMessage:Bool,index:Int){
         var newMesage:Messages?
         if isBotMessage{
@@ -25,11 +27,8 @@ class ChatViewModel{
             newMesage = Messages(strSender: "User", strMessage: strMessage, strdateMessage:"\(Date())")
         }
         SendChatMessage.sendMessages(index: index, dataMessage: newMesage!) { Success in
-//            tableviewChat.reloadData()
-//            self.textFieldMessage.text = ""
-//            buttonSendOutlet.isEnabled = false
             delegateSendMessage?.messageSend()
-            
         }
     }
 }
+

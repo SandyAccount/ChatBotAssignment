@@ -37,9 +37,14 @@ extension ListBotViewController: CreateNewBot{
 }
 // MARK: - Other Function
 extension ListBotViewController{
-     @objc func routeToAddBot(notification: Notification) {
+    @objc func routeToAddBot(notification: Notification) {
         let addBotView = AddBotViewController.loadCreateBotView(addBotDelegate:self)
         self.present(addBotView, animated: true)
+    }
+}
+extension ListBotViewController:ListBotCallBack{
+    func fetchBotListSuccess(isSuccessa:Bool){
+        loader?.dismiss(animated: true, completion: nil)
     }
 }
 
