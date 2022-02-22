@@ -40,7 +40,7 @@ class ListBotViewController: UIViewController{
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        title = ""
+        //title = ""
     }
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)

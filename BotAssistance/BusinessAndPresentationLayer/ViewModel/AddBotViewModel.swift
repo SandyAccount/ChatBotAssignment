@@ -19,4 +19,14 @@ class AddBotViewModel {
             Completion(true)
         }
     }
+    func validateUniqueBotName(strBotName:String) -> Bool{
+        if let arrayChat = ChatBotJson.sharedInstance.arrayBot{
+            let uniqueBotName = arrayChat.filter { $0.botName == strBotName}
+            if  uniqueBotName.count > 0 {
+                return false
+            }
+            return true
+        }
+        return true
+    }
 }

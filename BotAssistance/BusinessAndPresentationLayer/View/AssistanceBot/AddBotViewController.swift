@@ -38,6 +38,12 @@ class AddBotViewController: UIViewController {
             return
         }
         botViewModel = AddBotViewModel()
+        if !(botViewModel?.validateUniqueBotName(strBotName:textFieldBotName.text ?? "") ?? true){
+            commonMethod.controller = self
+            commonMethod.showAlert(strTitle: "Error!", strMessage: "Please enter Unique bot name")
+            textFieldBotName.text = ""
+            return
+        }
         botViewModel?.updateBotData(botName: textFieldBotName.text ?? "", Completion: { result in
             if result{
                 delegate?.initiateNewBot()
