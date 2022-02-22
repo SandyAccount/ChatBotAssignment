@@ -2,7 +2,7 @@
 //  Navigation.swift
 //  BotAssistance
 //
-//  Created by Activ Health on 21/02/22.
+//  Created by Sandesh on 21/02/22.
 //
 
 import Foundation
@@ -21,14 +21,6 @@ extension UINavigationController{
             btnAddBot.target = self
             btnAddBot.action = #selector(rightButtonAction(sender:))
             self.navigationBar.topItem?.rightBarButtonItems =  [btnAddBot]
-        }
-        navigationItem.backButtonTitle = ""
-        if isBackBarButton{
-            let backImage = UIImage(named: "back")?.withRenderingMode(.alwaysTemplate)
-            backImage?.withTintColor(UIColor.green)
-            self.navigationController?.navigationBar.backIndicatorImage = backImage
-            self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = backImage
-            self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItem.Style.plain, target: nil, action: nil)
             
         }
     }

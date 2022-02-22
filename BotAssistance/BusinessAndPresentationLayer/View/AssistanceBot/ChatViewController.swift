@@ -2,20 +2,19 @@
 //  ChatViewController.swift
 //  BotAssistance
 //
-//  Created by Activ Health on 21/02/22.
+//  Created by Sandesh on 21/02/22.
 //
 
 import UIKit
-
 class ChatViewController: UIViewController{
     // MARK: - Iboutlet and Global Variable Declaration
     @IBOutlet weak var buttonSendOutlet: UIButton!
-   // @IBOutlet weak var textFieldMessage: UITextField!
     @IBOutlet weak var textViewMessage: UITextView!
     @IBOutlet weak var tableviewChat: UITableView!
     @IBOutlet weak var viewSendMessage: UIView!
     var iIndex:Int?
     var chatViewModel:ChatViewModel?
+    var isSendMsg:Bool = false
     // MARK: - Load view with nib initialization
     static func loadChatView(strBotName:String,index:Int) -> ChatViewController{
         let chatView = ChatViewController(nibName: "ChatViewController", bundle: nil)
@@ -30,12 +29,23 @@ class ChatViewController: UIViewController{
         setUpInterface()
         setNavigationBar()
         registerCell()
-        self.registerObserver()
+        registerObserver()
         chatViewModel = ChatViewModel(delegate: self)
     }
+    // MARK: - Set Attribute For Ui element
     private func setUpInterface(){
         self.viewSendMessage.setAttributToView(cornerRadius: 5.0, borderWidth: 1.0, borderColor: UIColor.lightGray)
         textViewMessage.setAttributToView(cornerRadius: 5.0, borderWidth: 1.0, borderColor: UIColor.lightGray)
+    }
+    // MARK: - SetNavigation
+    private func setNavigationBar(){
+        navigationController?.setNavigationTheme(isBackBarButton: true, isRightBarButton: false, navigationTitle: "")
+        let backImage = UIImage(named: "backWhite")?.withRenderingMode(.alwaysOriginal)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: backImage, style: .plain, target: self, action: #selector(popnav))
+    }
+    // MARK: - Register Tableview and Collectionview cell
+    private func registerCell(){
+        self.tableviewChat.register(UINib(nibName: "ChatTableViewCell", bundle: nil), forCellReuseIdentifier: "Chat")
     }
   // MARK: - Register Observer
    private func registerObserver(){
@@ -57,33 +67,34 @@ class ChatViewController: UIViewController{
             }
         }
     }
-    // MARK: - SetNavigation
-    private func setNavigationBar(){
-        navigationController?.setNavigationTheme(isBackBarButton: true, isRightBarButton: false, navigationTitle: "")
-        
-        
-    }
-    // MARK: - Register Tableview and Collectionview cell
-    private func registerCell(){
-        self.tableviewChat.register(UINib(nibName: "ChatTableViewCell", bundle: nil), forCellReuseIdentifier: "Chat")
-    }
     // MARK: - Ibaction Click event
    // Send Message from User
     @IBAction private func buttonSendMessageClicked(_ sender: Any) {
-        textViewMessage.resignFirstResponder()
-        sendMessage(isBotMessage: false)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-            self.sendMessage(isBotMessage: true)
-            self.buttonSendOutlet.isEnabled = true
-        }
-    }
-    // MARK: - Send Message
-    private func sendMessage(isBotMessage:Bool){
-        if !(textViewMessage.text?.validateEmpty() ?? false) && !isBotMessage{
+        if !(textViewMessage.text?.validateEmpty() ?? false){
             commonMethod.controller = self
             commonMethod.showAlert(strTitle: "Error!", strMessage: "Please enter message")
             return
         }
+        isSendMsg = true
+        textViewMessage.resignFirstResponder()
+        sendMessage(isBotMessage: false)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            self.isSendMsg = false
+            self.sendMessage(isBotMessage: true)
+            self.buttonSendOutlet.isEnabled = true
+        }
+    }
+    @objc func popnav() {
+        if isSendMsg{
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                self.navigationController?.popViewController(animated: true)
+            }
+        }else{
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+    // MARK: - Send Message
+    private func sendMessage(isBotMessage:Bool){
         chatViewModel?.sendMessage(strMessage: self.textViewMessage.text ?? "", isBotMessage: isBotMessage, index: iIndex!)
     }
 }

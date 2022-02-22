@@ -2,7 +2,7 @@
 //  DashboardViewController.swift
 //  BotAssistance
 //
-//  Created by Activ Health on 21/02/22.
+//  Created by Sandesh on 21/02/22.
 //
 
 import UIKit
@@ -33,7 +33,8 @@ class ListBotViewController: UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         title = "Bot Assistance"
-        self.tableviewListBot.reloadData()
+        listBotViewModel?.sortBotArray()
+        reloadTableView()
         self.tableviewListBot.isHidden = listBotViewModel?.hideTableview() ?? false ? true : false
         listBotViewModel?.initializedObserver(view: self)
     }

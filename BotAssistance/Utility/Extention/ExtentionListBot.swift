@@ -2,7 +2,7 @@
 //  ExtentionListBot.swift
 //  BotAssistance
 //
-//  Created by Activ Health on 21/02/22.
+//  Created by Sandesh on 21/02/22.
 //
 
 import Foundation
@@ -40,6 +40,9 @@ extension ListBotViewController{
     @objc func routeToAddBot(notification: Notification) {
         let addBotView = AddBotViewController.loadCreateBotView(addBotDelegate:self)
         self.present(addBotView, animated: true)
+    }
+    func reloadTableView()  {
+        tableviewListBot.reloadData()
     }
 }
 extension ListBotViewController:ListBotCallBack{

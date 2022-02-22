@@ -2,7 +2,7 @@
 //  ChatViewModel.swift
 //  BotAssistance
 //
-//  Created by Activ Health on 21/02/22.
+//  Created by Sandesh on 21/02/22.
 //
 
 import Foundation

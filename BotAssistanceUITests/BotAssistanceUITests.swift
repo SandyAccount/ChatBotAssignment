@@ -2,7 +2,7 @@
 //  BotAssistanceUITests.swift
 //  BotAssistanceUITests
 //
-//  Created by Activ Health on 18/02/22.
+//  Created by Sandesh on 18/02/22.
 //
 
 import XCTest

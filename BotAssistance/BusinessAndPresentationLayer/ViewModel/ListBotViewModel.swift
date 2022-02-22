@@ -2,7 +2,7 @@
 //  ListBotViewModel.swift
 //  BotAssistance
 //
-//  Created by Activ Health on 21/02/22.
+//  Created by Sandesh on 21/02/22.
 //
 
 import Foundation
@@ -33,6 +33,13 @@ class ListBotViewModel:InitiateRemoveObserver {
             }
         } failure: { _ in
             delegate?.fetchBotListSuccess(isSuccessa:true)
+        }
+    }
+    func sortBotArray(){
+        if let arrayChatData = ChatBotJson.sharedInstance.arrayBot{
+            let arrayBotList = arrayChatData.sorted(by:{$0.sortDate ?? Date() > $1.sortDate ?? Date()})
+            let arrayfilterChatCount = (arrayBotList.filter {($0.messages.count > 0)} + arrayBotList.filter {($0.messages.count < 1)})
+            ChatBotJson.sharedInstance.arrayBot = arrayfilterChatCount
         }
     }
     // MARK: - No Data
